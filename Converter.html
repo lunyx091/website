@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DH ⇄ Dollar Converter</title>
+<style>
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f4f4f4;
+    font-family:Arial;
+}
+.box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0, 0, 0, 0.486);
+    width:300px;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    font-size:16px;
+}
+.dd{
+    display:flex;
+    justify-content:space-around;
+    margin-top:10px;
+}
+.result{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3>Currency Converter</h3>
+
+    <input type="number" id="amount" placeholder="Enter amount">
+
+        <div class="dd">
+        <input type="radio" name="mode" id="us" value="dh_usd" checked>
+        <label for="us">DH ➜ Dollar</label>
+
+
+        <input type="radio" name="mode" id="dh" value="usd_dh">
+         <label for="dh">Dollar ➜ DH</label>
+    </div>
+
+    <div class="result" id="result">---</div>
+</div>
+
+<script>
+const rate = 0.10;
+
+setInterval(()=>{
+    const amount = parseFloat(document.getElementById("amount").value);
+    const mode = document.querySelector('input[name="mode"]:checked').value;
+
+    if(isNaN(amount)){
+        result.innerText = "---";
+        return;
+    }
+
+    if(mode === "dh_usd"){
+        result.innerText = (amount * rate).toFixed(2) + " $";
+    }else{
+        result.innerText = (amount / rate).toFixed(2) + " DH";
+    }
+},500);
+</script>
+
+</body>
+</html>

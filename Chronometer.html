@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chronometer</title>
+<style>
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#222;
+    color:white;
+    font-family:Arial;
+    flex-direction:column;
+}
+#time{
+    font-size:40px;
+    margin-bottom:20px;
+}
+button{
+    padding:10px 20px;
+    margin:5px;
+    font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<div id="time">00:00:00</div>
+
+<div>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+</div>
+
+<script>
+let s=0,m=0,h=0,timer;
+
+function update(){
+    s++;
+    if(s==60){s=0;m++}
+    if(m==60){m=0;h++}
+    time.innerText =
+        h.toString().padStart(2,'0') + ":" +
+        m.toString().padStart(2,'0') + ":" +
+        s.toString().padStart(2,'0');
+}
+
+function start(){
+    if(!timer) timer=setInterval(update,1000);
+}
+function stop(){
+    clearInterval(timer);
+    timer=null;
+}
+function reset(){
+    stop();
+    s=m=h=0;
+    time.innerText="00:00:00";
+}
+</script>
+
+</body>
+</html>

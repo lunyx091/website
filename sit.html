@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ahmed Yassine Elmassoudi">
+    <title>Lunyx</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header class="main-header">
+    <h1 class="logo-header">Lunyx</h1>
+    <nav class="main-nav">
+        <a href="#section-home">Home</a>
+        <a href="#section-about">About</a>
+        <a href="#section-projects">Projects</a>
+        <a href="#section-contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="section-home" class="hero-section">
+    <img src="./profil.png" class="hero-avatar">
+
+    <div class="hero-content">
+        <h2>I am
+            <span class="animated-roles">
+                <span>yassine</span>
+                <span>a Coder</span>
+                <span>a 3D Designer</span>
+                <span>a Programmer</span>
+                <span>a Developer</span>
+            </span>
+        </h2>
+
+        <p>
+            Hi, I'm <strong>yassine</strong>, a creative developer, cyber security enthusiast
+            and 3D artist passionate about clean code and visual experiences.
+        </p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="section-about" class="about-section">
+    <h2>About Me</h2>
+
+    <div class="about-wrapper">
+        <img src="./01.png" class="about-photo">
+
+        <p class="about-description">
+            I'm Ahmed Yassine Elmassoudi, a developer specialized in web technologies,
+            cybersecurity fundamentals, and Blender 3D.
+            I love building secure, modern, and visually immersive projects.
+        </p>
+    </div>
+</section>
+
+<!-- MY PROJECTS -->
+<section id="section-projects" class="projects-section">
+    <h2>My Projects</h2>
+
+    <div class="projects-grid">
+        <div class="project-card" onclick="scrollToSection('section-blender')">
+            <i class="fa-solid fa-cube"></i>
+            <h3>3D Projects</h3>
+            <p>Blender models, renders and animations.</p>
+        </div>
+
+        <div class="project-card" onclick="scrollToSection('section-js')">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript Projects</h3>
+            <p>Interactive scripts & mini apps.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BLENDER PROJECTS -->
+<section id="section-blender" class="projects-section">
+    <h2>My Blender Projects</h2>
+
+    <div class="projects-grid">
+        <div class="project-card" onclick="openMedia('image','0001.png')">
+            <i class="fa-solid fa-image"></i>
+            <h3>3D Render</h3>
+            <p>High quality render.</p>
+        </div>
+
+        <div class="project-card" onclick="openMedia('video','vi1.mov')">
+            <i class="fa-solid fa-video"></i>
+            <h3>Animation</h3>
+            <p>Lighting and motion.</p>
+        </div>
+
+        <div class="project-card" onclick="openMedia('video','010.mkv')">
+            <i class="fa-solid fa-film"></i>
+            <h3>3D Scene</h3>
+            <p>Environment design.</p>
+        </div>
+    </div>
+</section>
+
+<!-- JS PROJECTS -->
+<section id="section-js" class="projects-section">
+    <h2>JavaScript Projects</h2>
+
+    <div class="projects-grid">
+     <div class="project-card" onclick="window.open('clock.html', '_blank')">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Digital Clock</h3>
+        </div>
+
+       <div class="project-card" onclick="window.open('calculator.html', '_blank')">
+         <i class="fa-solid fa-calculator"></i>
+         <h3>Calculator</h3>
+       </div>
+
+        <div class="project-card" onclick="window.open('Chronometer.html', '_blank')">
+            <i class="fa-solid fa-stopwatch"></i>
+            <h3>Chronometer</h3>
+        </div>
+
+     <div class="project-card" onclick="window.open('Converter.html', '_blank')">
+            <i class="fa-solid fa-money-bill"></i>
+            <h3>Converter</h3>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="media-modal" class="media-modal">
+    <span class="close-modal" onclick="closeMedia()">&times;</span>
+    <div id="media-container"></div>
+</div>
+    <div id="script-modal" class="script-modal">
+    <span class="close-modal" onclick="closeScript()">&times;</span>
+    <div id="script-container"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="section-contact" class="contact-section">
+    <h2>Contact Me</h2>
+
+    <div class="contact-links">
+        <a href="mailto:ahmedyassine_elmassoudi@um5.ac.ma">Email</a>
+        <a href="https://github.com/lunyx091" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/lunyx._.095" target="_blank">Instagram</a>
+    </div>
+</section>
+
+<footer class="site-footer">
+     <h1 class="logo">Lunyx</h1>
+    © 2025 Ahmed Yassine Elmassoudi
+</footer>
+
+<script>
+function openMedia(type, src) {
+    const container = document.getElementById("media-container");
+    const modal = document.getElementById("media-modal");
+
+    container.innerHTML = type === "image"
+        ? `<img src="${src}" class="modal-media">`
+        : `<video src="${src}" controls autoplay class="modal-media"></video>`;
+
+    modal.style.display = "flex";
+}
+
+function closeMedia() {
+    document.getElementById("media-modal").style.display = "none";
+    document.getElementById("media-container").innerHTML = "";
+}
+function closeScript() {
+    document.getElementById("script-modal").style.display = "none";
+    document.getElementById("script-container").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
